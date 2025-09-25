@@ -35,7 +35,6 @@ The application will be available at `http://localhost:3000`
 3. Edit the `.env` file and replace `your_groq_api_key_here` with your actual API key:
    ```
    REACT_APP_GROQ_API_KEY=your_actual_api_key_here
-   REACT_APP_GROQ_MODEL=llama-3.1-8b-instant
    ```
 
 **Note**: Without an API key, the app will use fallback questions for demonstration purposes. Groq offers a generous free tier with fast inference!
@@ -308,6 +307,7 @@ src/
 - **Icons**: Lucide React
 - **Build Tool**: Create React App
 - **Deployment**: Ready for Vercel/Netlify
+
 
 
 
