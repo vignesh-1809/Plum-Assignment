@@ -2,13 +2,11 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useQuiz } from '../context/QuizContext';
 import { 
-  Trophy, 
   RotateCcw, 
   CheckCircle, 
   XCircle, 
   Star,
   Share2,
-  Download,
   Eye,
   EyeOff
 } from 'lucide-react';
