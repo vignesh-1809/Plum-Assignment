@@ -50,7 +50,6 @@ The application will be available at `http://localhost:3000`
 
 ### Demo
 - **Live Demo**: https://plum-assignment-one.vercel.app/
-- **Screen Recording**: [Demo Video](./20250925-0807-24.7581634.mp4) - Complete walkthrough showing all 4 screens: topic selection → loading → quiz → results
 - **Local Demo**: Run `npm start` and visit `http://localhost:3000`
 
 ## 📋 Problem Understanding
@@ -307,6 +306,7 @@ src/
 - **Icons**: Lucide React
 - **Build Tool**: Create React App
 - **Deployment**: Ready for Vercel/Netlify
+
 
 
 
