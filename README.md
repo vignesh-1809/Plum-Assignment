@@ -27,9 +27,12 @@ npm run build
 The application will be available at `http://localhost:3000`
 
 ### Environment Setup
-1. Create a `.env` file in the root directory
+1. Copy `env.example` to `.env`:
+   ```bash
+   cp env.example .env
+   ```
 2. Get your free Groq API key from [Groq Console](https://console.groq.com/keys)
-3. Add your API key to the `.env` file:
+3. Edit the `.env` file and replace `your_groq_api_key_here` with your actual API key:
    ```
    REACT_APP_GROQ_API_KEY=your_actual_api_key_here
    REACT_APP_GROQ_MODEL=llama-3.1-8b-instant
@@ -308,6 +311,9 @@ src/
 
 
 
-#   P l u m - A s s i g n m e n t  
+#   P l u m - A s s i g n m e n t 
+ 
+ #   P l u m - A s s i g n m e n t 
+ 
  #   P l u m - A s s i g n m e n t  
  
