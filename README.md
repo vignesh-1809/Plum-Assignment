@@ -50,7 +50,7 @@ The application will be available at `http://localhost:3000`
 - **Multiple Models**: Support for different Groq models (Llama, Mixtral)
 
 ### Demo
-- **Live Demo**: [Deploy to Vercel/Netlify for live demo]
+- **Live Demo**: https://plum-assignment-one.vercel.app/
 - **Screen Recording**: [Demo Video](./20250925-0807-24.7581634.mp4) - Complete walkthrough showing all 4 screens: topic selection → loading → quiz → results
 - **Local Demo**: Run `npm start` and visit `http://localhost:3000`
 
@@ -311,14 +311,4 @@ src/
 
 
 
-#   P l u m - A s s i g n m e n t 
- 
- #   P l u m - A s s i g n m e n t 
- 
- #   P l u m - A s s i g n m e n t 
- 
- #   P l u m - A s s i g n m e n t 
- 
- #   P l u m - A s s i g n m e n t 
- 
- 
+
