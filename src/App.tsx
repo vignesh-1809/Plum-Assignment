@@ -1,5 +1,5 @@
 import React from 'react';
-import { AnimatePresence } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 import { QuizProvider, useQuiz } from './context/QuizContext';
 import TopicSelection from './components/TopicSelection';
 import QuizInterface from './components/QuizInterface';
@@ -31,7 +31,19 @@ const AppContent: React.FC = () => {
       <DarkModeToggle />
       
       <AnimatePresence mode="wait">
-        {renderCurrentScreen()}
+        <motion.div
+          key={currentState}
+          initial={{ opacity: 0, y: 20, scale: 0.95 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          exit={{ opacity: 0, y: -20, scale: 0.95 }}
+          transition={{ 
+            duration: 0.4, 
+            ease: [0.4, 0, 0.2, 1],
+            scale: { duration: 0.3 }
+          }}
+        >
+          {renderCurrentScreen()}
+        </motion.div>
       </AnimatePresence>
       
       <AnimatePresence>

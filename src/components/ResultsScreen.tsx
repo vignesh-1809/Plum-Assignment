@@ -100,14 +100,55 @@ const ResultsScreen: React.FC = () => {
           className="card mb-8 text-center"
         >
           <div className="mb-6">
-            <motion.div
-              initial={{ scale: 0 }}
-              animate={{ scale: 1 }}
-              transition={{ delay: 0.5, type: "spring", stiffness: 200 }}
-              className={`text-6xl font-bold ${getScoreColor(result.percentage)} mb-2`}
+          <motion.div
+            initial={{ scale: 0, rotate: -180 }}
+            animate={{ scale: 1, rotate: 0 }}
+            transition={{ 
+              delay: 0.5, 
+              type: "spring", 
+              stiffness: 200,
+              damping: 15
+            }}
+            className={`text-6xl font-bold ${getScoreColor(result.percentage)} mb-2 relative`}
+          >
+            <motion.span
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.8 }}
             >
               {result.percentage}%
-            </motion.div>
+            </motion.span>
+            {/* Celebration particles */}
+            {result.percentage >= 80 && (
+              <>
+                {[...Array(6)].map((_, i) => (
+                  <motion.div
+                    key={i}
+                    initial={{ 
+                      scale: 0, 
+                      x: 0, 
+                      y: 0,
+                      rotate: 0
+                    }}
+                    animate={{ 
+                      scale: [0, 1, 0],
+                      x: Math.cos(i * 60 * Math.PI / 180) * 100,
+                      y: Math.sin(i * 60 * Math.PI / 180) * 100,
+                      rotate: 360
+                    }}
+                    transition={{ 
+                      delay: 1 + i * 0.1,
+                      duration: 1.5,
+                      ease: "easeOut"
+                    }}
+                    className="absolute text-yellow-400 text-2xl"
+                  >
+                    ✨
+                  </motion.div>
+                ))}
+              </>
+            )}
+          </motion.div>
             <p className="text-lg text-gray-600 dark:text-gray-300">
               {result.score} out of {result.totalQuestions} questions correct
             </p>
@@ -126,40 +167,68 @@ const ResultsScreen: React.FC = () => {
             />
           </div>
 
-          {/* Action Buttons */}
+          {/* Enhanced Action Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button
+            <motion.button
               onClick={resetQuiz}
               className="btn-primary flex items-center justify-center"
+              whileHover={{ 
+                scale: 1.05,
+                boxShadow: "0 10px 25px rgba(0,0,0,0.2)"
+              }}
+              whileTap={{ scale: 0.95 }}
+              transition={{ duration: 0.2 }}
             >
-              <RotateCcw className="w-5 h-5 mr-2" />
+              <motion.div
+                whileHover={{ rotate: -180 }}
+                transition={{ duration: 0.3 }}
+              >
+                <RotateCcw className="w-5 h-5 mr-2" />
+              </motion.div>
               Take Another Quiz
-            </button>
+            </motion.button>
             
-            <button
+            <motion.button
               onClick={handleShare}
               className="btn-secondary flex items-center justify-center"
+              whileHover={{ 
+                scale: 1.05,
+                boxShadow: "0 10px 25px rgba(0,0,0,0.2)"
+              }}
+              whileTap={{ scale: 0.95 }}
+              transition={{ duration: 0.2 }}
             >
-              <Share2 className="w-5 h-5 mr-2" />
+              <motion.div
+                whileHover={{ scale: 1.2 }}
+                transition={{ duration: 0.2 }}
+              >
+                <Share2 className="w-5 h-5 mr-2" />
+              </motion.div>
               Share Results
-            </button>
+            </motion.button>
             
-            <button
+            <motion.button
               onClick={() => setShowDetailedResults(!showDetailedResults)}
               className="btn-secondary flex items-center justify-center"
+              whileHover={{ 
+                scale: 1.05,
+                boxShadow: "0 10px 25px rgba(0,0,0,0.2)"
+              }}
+              whileTap={{ scale: 0.95 }}
+              transition={{ duration: 0.2 }}
             >
-              {showDetailedResults ? (
-                <>
+              <motion.div
+                animate={{ rotate: showDetailedResults ? 180 : 0 }}
+                transition={{ duration: 0.3 }}
+              >
+                {showDetailedResults ? (
                   <EyeOff className="w-5 h-5 mr-2" />
-                  Hide Details
-                </>
-              ) : (
-                <>
+                ) : (
                   <Eye className="w-5 h-5 mr-2" />
-                  Show Details
-                </>
-              )}
-            </button>
+                )}
+              </motion.div>
+              {showDetailedResults ? 'Hide Details' : 'Show Details'}
+            </motion.button>
           </div>
         </motion.div>
 

@@ -4,7 +4,7 @@ export const topics: Topic[] = [
   {
     id: 'wellness',
     name: 'Wellness',
-    description: 'Health, nutrition, fitness, and mental well-being',
+    description: 'Health, nutrition, fitness, and overall mental well-being',
     icon: '💪',
     color: 'bg-green-500',
   },

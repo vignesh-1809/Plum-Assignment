@@ -89,14 +89,30 @@ const QuizInterface: React.FC = () => {
             </div>
           </div>
           
-          {/* Progress Bar */}
-          <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2 mb-4">
+          {/* Enhanced Progress Bar */}
+          <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-3 mb-4 overflow-hidden">
             <motion.div
-              className="bg-primary-600 h-2 rounded-full"
+              className="bg-gradient-to-r from-primary-500 to-primary-600 h-3 rounded-full relative"
               initial={{ width: 0 }}
               animate={{ width: `${progress}%` }}
-              transition={{ duration: 0.5 }}
-            />
+              transition={{ 
+                duration: 0.8, 
+                ease: [0.4, 0, 0.2, 1],
+                delay: 0.2
+              }}
+            >
+              {/* Shimmer effect */}
+              <motion.div
+                className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-30"
+                animate={{ x: ['-100%', '100%'] }}
+                transition={{ 
+                  duration: 2, 
+                  repeat: Infinity, 
+                  ease: "linear",
+                  delay: 1
+                }}
+              />
+            </motion.div>
           </div>
           
           <h1 className="text-2xl font-bold text-gray-900 dark:text-white">
@@ -124,19 +140,41 @@ const QuizInterface: React.FC = () => {
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
+                whileHover={{ 
+                  scale: 1.02,
+                  transition: { duration: 0.2 }
+                }}
+                whileTap={{ 
+                  scale: 0.98,
+                  transition: { duration: 0.1 }
+                }}
                 onClick={() => handleAnswerSelect(index)}
                 disabled={showExplanation}
-                className={`w-full p-4 rounded-lg border-2 text-left transition-all duration-200 flex items-center space-x-3 ${getOptionStyle(index)} ${
+                className={`w-full p-4 rounded-lg border-2 text-left transition-all duration-300 flex items-center space-x-3 ${getOptionStyle(index)} ${
                   showExplanation ? 'cursor-default' : 'cursor-pointer'
                 }`}
               >
                 <div className="flex-shrink-0">
                   {showExplanation && index === currentQuestion.correctAnswer ? (
-                    <CheckCircle className="w-6 h-6 text-success-500" />
+                    <motion.div
+                      initial={{ scale: 0, rotate: -180 }}
+                      animate={{ scale: 1, rotate: 0 }}
+                      transition={{ 
+                        type: "spring", 
+                        stiffness: 300, 
+                        damping: 20,
+                        delay: 0.2
+                      }}
+                    >
+                      <CheckCircle className="w-6 h-6 text-success-500" />
+                    </motion.div>
                   ) : (
-                    <Circle className="w-6 h-6" />
+                    <motion.div
+                      whileHover={{ scale: 1.1 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      <Circle className="w-6 h-6" />
+                    </motion.div>
                   )}
                 </div>
                 <span className="font-medium">{option}</span>
@@ -183,7 +221,7 @@ const QuizInterface: React.FC = () => {
 
           <div className="flex space-x-2">
             {quizData.questions.map((_, index) => (
-              <div
+              <motion.div
                 key={index}
                 className={`w-3 h-3 rounded-full transition-colors ${
                   index === currentQuestionIndex
@@ -192,6 +230,12 @@ const QuizInterface: React.FC = () => {
                     ? 'bg-success-500'
                     : 'bg-gray-300 dark:bg-gray-600'
                 }`}
+                animate={{
+                  scale: index === currentQuestionIndex ? 1.2 : 1,
+                  opacity: index === currentQuestionIndex ? 1 : 0.7
+                }}
+                transition={{ duration: 0.2 }}
+                whileHover={{ scale: 1.3 }}
               />
             ))}
           </div>

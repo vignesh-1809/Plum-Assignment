@@ -31,22 +31,42 @@ const DarkModeToggle: React.FC = () => {
 
   return (
     <motion.button
-      whileHover={{ scale: 1.05 }}
-      whileTap={{ scale: 0.95 }}
+      initial={{ opacity: 0, scale: 0 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ delay: 0.5, type: "spring", stiffness: 300 }}
+      whileHover={{ 
+        scale: 1.1,
+        boxShadow: "0 10px 25px rgba(0,0,0,0.2)"
+      }}
+      whileTap={{ scale: 0.9 }}
       onClick={toggleDarkMode}
-      className="fixed top-4 right-4 z-40 p-3 bg-white dark:bg-gray-800 rounded-full shadow-lg border border-gray-200 dark:border-gray-700 hover:shadow-xl transition-shadow duration-200"
+      className="fixed top-4 right-4 z-40 p-3 bg-white dark:bg-gray-800 rounded-full shadow-lg border border-gray-200 dark:border-gray-700 hover:shadow-xl transition-all duration-300"
       aria-label="Toggle dark mode"
     >
       <motion.div
         initial={false}
-        animate={{ rotate: isDark ? 180 : 0 }}
-        transition={{ duration: 0.3 }}
+        animate={{ 
+          rotate: isDark ? 180 : 0,
+          scale: [1, 1.2, 1]
+        }}
+        transition={{ 
+          duration: 0.4,
+          scale: { duration: 0.2 }
+        }}
       >
-        {isDark ? (
-          <Sun className="w-5 h-5 text-yellow-500" />
-        ) : (
-          <Moon className="w-5 h-5 text-gray-700" />
-        )}
+        <motion.div
+          key={isDark ? 'sun' : 'moon'}
+          initial={{ opacity: 0, scale: 0 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0, scale: 0 }}
+          transition={{ duration: 0.2 }}
+        >
+          {isDark ? (
+            <Sun className="w-5 h-5 text-yellow-500" />
+          ) : (
+            <Moon className="w-5 h-5 text-gray-700" />
+          )}
+        </motion.div>
       </motion.div>
     </motion.button>
   );
