@@ -311,29 +311,29 @@ Generate feedback that will motivate continued learning.`;
   private getFeedbackTemplates(performanceLevel: string, topicContext: string): string[] {
     const templates = {
       'Excellent': [
-        `Outstanding work! You scored {score}/{total} ({percentage}%) on the {topic} quiz. Your knowledge of {topicContext} is exceptional and shows deep understanding. Keep up the excellent work!`,
-        `Fantastic performance! {percentage}% on {topic} demonstrates your mastery of {topicContext}. You clearly have a strong foundation in this area. Continue exploring and learning!`,
-        `Brilliant results! Your {score}/{total} score in {topic} shows excellent comprehension of {topicContext}. Your dedication to learning is truly impressive!`
+        `Outstanding work! You scored {score}/{total} ({percentage}%) on the {topic} quiz. Your knowledge of ${topicContext} is exceptional and shows deep understanding. Keep up the excellent work!`,
+        `Fantastic performance! {percentage}% on {topic} demonstrates your mastery of ${topicContext}. You clearly have a strong foundation in this area. Continue exploring and learning!`,
+        `Brilliant results! Your {score}/{total} score in {topic} shows excellent comprehension of ${topicContext}. Your dedication to learning is truly impressive!`
       ],
       'Very Good': [
-        `Great job! You scored {score}/{total} ({percentage}%) on the {topic} quiz. You have a solid understanding of {topicContext} with just a few areas to explore further.`,
-        `Well done! Your {percentage}% performance in {topic} shows good knowledge of {topicContext}. You're on the right track - keep learning and growing!`,
-        `Excellent effort! {score}/{total} in {topic} demonstrates strong understanding of {topicContext}. A few more study sessions and you'll master this topic!`
+        `Great job! You scored {score}/{total} ({percentage}%) on the {topic} quiz. You have a solid understanding of ${topicContext} with just a few areas to explore further.`,
+        `Well done! Your {percentage}% performance in {topic} shows good knowledge of ${topicContext}. You're on the right track - keep learning and growing!`,
+        `Excellent effort! {score}/{total} in {topic} demonstrates strong understanding of ${topicContext}. A few more study sessions and you'll master this topic!`
       ],
       'Good': [
-        `Good work! You scored {score}/{total} ({percentage}%) on the {topic} quiz. You have a decent grasp of {topicContext}, but there's room for improvement.`,
-        `Not bad! Your {percentage}% in {topic} shows you understand the basics of {topicContext}. Consider reviewing the topics you missed to strengthen your knowledge.`,
-        `Solid effort! {score}/{total} in {topic} indicates you're learning about {topicContext}. Keep studying and you'll see great improvement!`
+        `Good work! You scored {score}/{total} ({percentage}%) on the {topic} quiz. You have a decent grasp of ${topicContext}, but there's room for improvement.`,
+        `Not bad! Your {percentage}% in {topic} shows you understand the basics of ${topicContext}. Consider reviewing the topics you missed to strengthen your knowledge.`,
+        `Solid effort! {score}/{total} in {topic} indicates you're learning about ${topicContext}. Keep studying and you'll see great improvement!`
       ],
       'Fair': [
-        `Keep learning! You scored {score}/{total} ({percentage}%) on the {topic} quiz. You have some knowledge of {topicContext}, but there are several areas to focus on.`,
-        `Room for improvement! Your {percentage}% in {topic} shows you're starting to understand {topicContext}. Take time to review and study more.`,
-        `Don't give up! {score}/{total} in {topic} means you're building your knowledge of {topicContext}. Every expert was once a beginner!`
+        `Keep learning! You scored {score}/{total} ({percentage}%) on the {topic} quiz. You have some knowledge of ${topicContext}, but there are several areas to focus on.`,
+        `Room for improvement! Your {percentage}% in {topic} shows you're starting to understand ${topicContext}. Take time to review and study more.`,
+        `Don't give up! {score}/{total} in {topic} means you're building your knowledge of ${topicContext}. Every expert was once a beginner!`
       ],
       'Needs Improvement': [
-        `Keep going! You scored {score}/{total} ({percentage}%) on the {topic} quiz. While this shows you have some knowledge gaps in {topicContext}, it's a great starting point for learning.`,
-        `Learning opportunity! Your {percentage}% in {topic} indicates areas to focus on in {topicContext}. This is your chance to dive deeper and expand your understanding.`,
-        `Every journey begins with a step! {score}/{total} in {topic} shows you're beginning to explore {topicContext}. Keep studying and you'll see amazing progress!`
+        `Keep going! You scored {score}/{total} ({percentage}%) on the {topic} quiz. While this shows you have some knowledge gaps in ${topicContext}, it's a great starting point for learning.`,
+        `Learning opportunity! Your {percentage}% in {topic} indicates areas to focus on in ${topicContext}. This is your chance to dive deeper and expand your understanding.`,
+        `Every journey begins with a step! {score}/{total} in {topic} shows you're beginning to explore ${topicContext}. Keep studying and you'll see amazing progress!`
       ]
     };
     

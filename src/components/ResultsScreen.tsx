@@ -6,7 +6,6 @@ import {
   CheckCircle, 
   XCircle, 
   Star,
-  Share2,
   Eye,
   EyeOff
 } from 'lucide-react';
@@ -40,30 +39,7 @@ const ResultsScreen: React.FC = () => {
     if (percentage >= 60) return '🥉';
     return '📚';
   };
-
-  const handleShare = async () => {
-    const shareText = `I just scored ${result.percentage}% on the ${quizData.topic} quiz! Test your knowledge too!`;
-    
-    if (navigator.share) {
-      try {
-        await navigator.share({
-          title: 'AI Knowledge Quiz Results',
-          text: shareText,
-          url: window.location.href,
-        });
-      } catch (error) {
-        console.log('Error sharing:', error);
-      }
-    } else {
-      // Fallback to clipboard
-      try {
-        await navigator.clipboard.writeText(shareText);
-        alert('Results copied to clipboard!');
-      } catch (error) {
-        console.log('Error copying to clipboard:', error);
-      }
-    }
-  };
+  
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-primary-50 to-primary-100 dark:from-gray-900 dark:to-gray-800 p-4">
@@ -186,25 +162,6 @@ const ResultsScreen: React.FC = () => {
                 <RotateCcw className="w-5 h-5 mr-2" />
               </motion.div>
               Take Another Quiz
-            </motion.button>
-            
-            <motion.button
-              onClick={handleShare}
-              className="btn-secondary flex items-center justify-center"
-              whileHover={{ 
-                scale: 1.05,
-                boxShadow: "0 10px 25px rgba(0,0,0,0.2)"
-              }}
-              whileTap={{ scale: 0.95 }}
-              transition={{ duration: 0.2 }}
-            >
-              <motion.div
-                whileHover={{ scale: 1.2 }}
-                transition={{ duration: 0.2 }}
-              >
-                <Share2 className="w-5 h-5 mr-2" />
-              </motion.div>
-              Share Results
             </motion.button>
             
             <motion.button

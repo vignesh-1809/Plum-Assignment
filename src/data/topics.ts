@@ -19,7 +19,7 @@ export const topics: Topic[] = [
     id: 'history',
     name: 'History',
     description: 'World history, historical events, and famous figures',
-    icon: '📚',
+    icon: '🏛️',
     color: 'bg-purple-500',
   },
   {
